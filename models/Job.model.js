@@ -14,6 +14,14 @@ const jobSchema = new Schema(
       type: Number,
       required: [true, "Budget is required."],
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: "Category",
+    },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
