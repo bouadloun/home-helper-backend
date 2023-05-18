@@ -24,4 +24,17 @@ router.get("/categories", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+router.post("/add-job", (req, res, next) => {
+  console.log(req.body);
+
+  const { title, description, budget, category } = req.body;
+
+  Job.create({ title, description, budget, category })
+    .then((createdJob) => {
+      res.status(200);
+      res.send(createdJob);
+    })
+    .catch((err) => next(err));
+});
+
 module.exports = router;
